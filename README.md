@@ -1,17 +1,17 @@
 # Audio Identification & Source Detection System
 
 ## Team Information
-- **Team Name**: [Team Name]
-- **Year**: [Year]
-- **All-Female Team**: [Yes/No]
+- **Team Name**: Code titans
+- **Year**: 1st 
+- **All-Female Team**: No
 
 ## Architecture Overview
 
 #### Describe your approach here. Keep it short and clear.
 
-    - [How does your system efficiently extract and store features (e.g., fingerprints, spectrograms) from the audio dataset?]
-    - [What matching algorithm or technique do you use to compare noisy/partial query snippets against the database?]
-    - [How does your architecture handle scalability to support a few thousand songs and concurrent queries?]
-    - [What mechanisms are in place to ensure low latency and high accuracy despite noise or distortion in the input queries?]
+    - We generate an MD5-based audio fingerprint from the raw audio bytes and extract spectrogram features like tempo, pitch, and energy level for each audio clip and store           them in a structured in-memory database for fast lookup.
+    - We use fingerprint-based similarity matching combined with spectrogram feature comparison to identify the closest matching song from the database even for noisy or             partial audio inputs.
+    - The system uses a modular design where the song database can be extended to thousands of entries. The fingerprint matching is O(n) and can be optimized with indexing            for larger datasets.
+    - We use lightweight MD5 fingerprinting for speed and a confidence scoring system that accounts for noise levels in the input to ensure accurate results even with                distorted audio.
 
 **Note:** Please do not change the format or spelling of anything in this README. The fields are extracted using a script, so any changes to the structure or formatting may break the extraction process.
