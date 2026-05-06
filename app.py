@@ -34,10 +34,9 @@ def match_song(fingerprint, features):
     time.sleep(2)  # Simulate processing
     matched_song = random.choice(SONG_DATABASE)
     
-    # Higher confidence if noise is low
-    base_confidence = 99 - (features["noise_level"] * 100)
-    confidence = round(random.uniform(base_confidence - 5, base_confidence), 2)
-    confidence = max(70, min(99, confidence))
+    base_confidence = 99 - (features["noise_level"] * 10)
+    confidence = round(random.uniform(base_confidence - 2, base_confidence), 2)
+    confidence = max(88, min(99, confidence))
     return matched_song, confidence
 
 # ---- Streamlit UI ----
